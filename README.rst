@@ -6,3 +6,5 @@ Pretty Plot: matplotlib style Functions
 
     
 The prettyplot package provides various functionality to semi-automatically prettify matplotlib plots.
+
+Documentation: https://prettyplot.readthedocs.io
