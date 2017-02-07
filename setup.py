@@ -5,6 +5,8 @@
 """Functions and tools to style matplotlib plots.
 """
 
+# Always prefer setuptools over distutils
+from setuptools import setup
 # To use a consistent encoding
 from codecs import open
 from os import path
