@@ -9,11 +9,25 @@ FONT_SIZE = 9
 
 
 def set_font():
+    """Sets a good font and font size.
+
+    By default 'Source Sans Pro' is used. The font needs to be installed. If
+    the font is not picked up, try deleting the matplotlib font cache
+    ($HOME/.cache/matplotlib/fontList.py3k.cache) and restart the python
+    interpreter.
+    """
+
     plt.rcParams["font.family"] = FONT_FAMILY
     plt.rcParams["font.size"] = FONT_SIZE
 
 
 def horizontal_grid(ax):
+    """Add a horizontal grid.
+
+    Grid lines are white, and the background is set to a light gray. This way
+    the grid lines are in the background and do not interfere with plot lines.
+    """
+
     ax.set_axis_bgcolor(BGCOLOR)
     for loc in ("right", "top", "left"):
         ax.spines[loc].set_visible(False)
@@ -24,6 +38,14 @@ def horizontal_grid(ax):
 
 
 def position_labels(ax):
+    """Position labels horizontally.
+
+    The x-label will be positioned on the right side of the x-axis.
+    The y-label will be positioned on top of the plot, below the title. Unlike
+    the default matplotlib label, the y-label will be printed horizontally.
+    The title will be positioned on top of the y-label in a bold font.
+    """
+
     ax.text(0, 1.01, ax.yaxis.label.get_text(), transform=ax.transAxes,
             va='bottom', ha='left', weight='normal', size=FONT_SIZE+1)
     ax.text(0, 1.01, ax.title.get_text()+'\n', transform=ax.transAxes,
@@ -35,6 +57,10 @@ def position_labels(ax):
 
 
 def set_linestyle(ax):
+    """Set styles for plot lines.
+
+    This adjusts marker, width, and alpha channel of plot lines.
+    """
     for line in ax.lines:
         line.set_marker('o')
         line.set_markersize(3)
@@ -44,6 +70,11 @@ def set_linestyle(ax):
 
 
 def config_plot(ax):
+    """Configure multiple parameters of a plot.
+
+    This will call set_font, horizontal_grid, position_labels, and set_linestyle.
+    """
+
     set_font()
     horizontal_grid(ax)
     position_labels(ax)
@@ -51,6 +82,11 @@ def config_plot(ax):
 
 
 def natural_log2_xaxis(ax, ticks):
+    """Natural labels for a logarithmic x-axis with base 2.
+
+    This will set natural x-axis labels with suffixes 'k', 'M', 'G', etc.
+    """
+
     ax.set_xscale("log", base=2)
     ax.set_xticks(ticks)
     ticks = ax.get_xticks()
