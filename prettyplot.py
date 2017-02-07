@@ -8,8 +8,8 @@ FONT_FAMILY = "Source Sans Pro"
 FONT_SIZE = 9
 
 def set_font():
-	plt.rcParams["font.family"] = FONT_FAMILY
-	plt.rcParams["font.size"] = FONT_SIZE
+    plt.rcParams["font.family"] = FONT_FAMILY
+    plt.rcParams["font.size"] = FONT_SIZE
 
 
 def horizontal_grid(ax):
@@ -24,10 +24,11 @@ def horizontal_grid(ax):
 
 def position_labels(ax):
     ax.text(0, 1.01, ax.yaxis.label.get_text(), transform=ax.transAxes,
-           va='bottom', ha='left', weight='normal', size=FONT_SIZE+1)
+            va='bottom', ha='left', weight='normal', size=FONT_SIZE+1)
     ax.text(0, 1.01, ax.title.get_text()+'\n', transform=ax.transAxes,
-           va='bottom', ha='left', weight='bold', size=FONT_SIZE+1)
-    ax.set_xlabel(ax.xaxis.label.get_text(), position=(1,0), ha='right', size=FONT_SIZE+1)
+            va='bottom', ha='left', weight='bold', size=FONT_SIZE+1)
+    ax.set_xlabel(ax.xaxis.label.get_text(), position=(1,0),
+                  ha='right', size=FONT_SIZE+1)
     ax.set_ylabel('')
     ax.set_title("")
 
@@ -42,10 +43,10 @@ def set_linestyle(ax):
 
 
 def config_plot(ax):
-	set_font()
-	horizontal_grid(ax)
-	position_labels(ax)
-	set_linestyle(ax)
+    set_font()
+    horizontal_grid(ax)
+    position_labels(ax)
+    set_linestyle(ax)
 
 
 def natural_log2_xaxis(ax, ticks):
@@ -54,9 +55,12 @@ def natural_log2_xaxis(ax, ticks):
     ticks = ax.get_xticks()
     labels = [item.get_text() for item in ax.get_xticklabels()]
     for i, (t, l) in enumerate(zip(ticks, labels)):
-        if t   // (1024**3) >= 1: labels[i] = str(t//(1024**3))+'G'
-        elif t // (1024**2) >= 1: labels[i] = str(t//(1024**2))+'M'
-        elif t // (1024**1) >= 1: labels[i] = str(t//(1024**1))+'k'
+        if   t // (1024**3) >= 1:
+            labels[i] = str(t//(1024**3))+'G'
+        elif t // (1024**2) >= 1:
+            labels[i] = str(t//(1024**2))+'M'
+        elif t // (1024**1) >= 1:
+            labels[i] = str(t//(1024**1))+'k'
         else: labels[i] = str(t)
     ax.minorticks_off()
     ax.set_xticklabels(labels, ha='center', rotation=45.0)
