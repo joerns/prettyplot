@@ -72,7 +72,8 @@ def set_linestyle(ax):
 def config_plot(ax):
     """Configure multiple parameters of a plot.
 
-    This will call set_font, horizontal_grid, position_labels, and set_linestyle.
+    This will call set_font, horizontal_grid, position_labels, and
+    set_linestyle.
     """
 
     set_font()
