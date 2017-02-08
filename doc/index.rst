@@ -9,12 +9,10 @@ Pretty Plot: matplotlib style Functions
 The prettyplot package provides various functionality to semi-automatically
 prettify matplotlib plots.
 
+.. toctree::
+   :maxdepth: 2
 
-Available Functions
-===================
-
-.. automodule:: prettyplot
-    :members:
+   style_functions
 
 Indices and tables
 ==================
