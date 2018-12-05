@@ -28,7 +28,7 @@ def horizontal_grid(ax):
     the grid lines are in the background and do not interfere with plot lines.
     """
 
-    ax.set_axis_bgcolor(BGCOLOR)
+    ax.set_facecolor(BGCOLOR)
     for loc in ("right", "top", "left"):
         ax.spines[loc].set_visible(False)
     ax.yaxis.set_ticks_position('none')
